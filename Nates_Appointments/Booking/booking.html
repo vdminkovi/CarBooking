@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking - NateDawgs</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="../scripts/services.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">NateDawgs</div>
+        <nav>
+            <ul>
+                <li><a href="../home/home.html">Home</a></li>
+                <li><a href="../services/services.html">Services</a></li>
+                <li><a href="booking.html" class="active">Booking</a></li>
+                <li><a href="../contact/contact.html">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="booking-selection" id="booking-selection">
+            <h1>Book an Appointment</h1>
+            <form id="booking-form">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required placeholder="Enter 10-digit number">
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="vehicle-make">Vehicle Make:</label>
+                <select id="vehicle-make" required>
+                    <option value="">Select Make</option>
+                </select>
+
+                <label for="vehicle-model">Vehicle Model:</label>
+                <select id="vehicle-model" required>
+                    <option value="">Select Model</option>
+                </select>
+
+                <label for="vehicle-year">Vehicle Year:</label>
+                <select id="vehicle-year" required>
+                    <option value="">Select Year</option>
+                </select>
+
+                <label for="service-select">Select Service:</label>
+                <select id="service-select" name="service-select" required>
+                    <option value="" disabled selected>Select a service</option>
+                </select>
+
+                <label for="date">Choose Date:</label>
+                <input type="date" id="date">
+
+                <label for="time-select">Preferred Time:</label>
+                <select id="time-select" name="time-select" required>
+                    <option value="" disabled selected>Select a time</option>
+                    <option value="Morning">Morning</option>
+                    <option value="Noon">Noon</option>
+                    <option value="Evening">Evening</option>
+                </select>
+
+                <!-- <label for="service">Select Service:</label>
+                <select id="service-select"></select> -->
+                
+                <button type="submit">Book Now</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 NateDawgs. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+Can you make the drop down for server select to be a button select. And can you make all buttons on the page reflect the names entered 
