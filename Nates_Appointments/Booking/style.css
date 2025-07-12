@@ -10,22 +10,56 @@
     background-color: #f8f9fa;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
+.form-control{
+    margin: 20px 0;
+}
 
 .booking-selection label {
-    margin-top: 10px;
     font-weight: bold;
 }
 
 .booking-selection input, 
 .booking-selection select {
-    padding: 10px;
+    padding: 10px 10px 10px 0;
     margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: transparent;
+    border-bottom: 2px solid #ccc;
+    border-radius: 0;
     font-size: 1rem;
     width: 100%;
 }
-
+.booking-selection input:focus,
+.booking-selection input:active,
+.booking-selection input:visited,
+.booking-selection input:hover,
+.booking-selection input:focus-within,
+.booking-selection input:focus-visible,
+.booking-selection input:target
+{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: transparent;
+    border-radius: 0;
+    outline:none;
+}
+.booking-selection select:focus,
+.booking-selection select:active,
+.booking-selection select:visited,
+.booking-selection select:hover,
+.booking-selection select:focus-within,
+.booking-selection select:focus-visible,
+.booking-selection select:target {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: transparent;
+    border-radius: 0;
+    outline:none;
+}
 .booking-selection button {
     margin-top: 20px;
     padding: 10px;
@@ -39,4 +73,12 @@
 
 .booking-selection button:hover {
     background-color: #0056b3;
+}
+/*Validation styles*/
+.error {
+    color: red;
+    font-size: 0.6em;
+}
+input.error-border {
+     border-bottom: 2px solid red;
 }

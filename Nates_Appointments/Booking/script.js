@@ -63,11 +63,75 @@ document.addEventListener("DOMContentLoaded", function () {
     //     console.error("Phone input field not found in the DOM.");
     // }
 
+    //VALIDATION OF THE FORM
+    // Individual field validators
+    function validateName() {
+      const name = document.getElementById('name');
+      const error = document.getElementById('name-error');
+      if (name.value.trim() === '') {
+        error.textContent = 'Full name is required.';
+        name.classList.add('error-border');
+        return false;
+      } else {
+        error.textContent = '';
+        name.classList.remove('error-border');
+        return true;
+      }
+    }
+
+    function validatePhone() {
+      const phone = document.getElementById('phone');
+      const error = document.getElementById('phone-error');
+      const pattern = /^[0-9]{10}$/;
+      if (!pattern.test(phone.value.trim())) {
+        error.textContent = 'Enter a valid 10-digit phone number.';
+        phone.classList.add('error-border');
+        return false;
+      } else {
+        error.textContent = '';
+        phone.classList.remove('error-border');
+        return true;
+      }
+    }
+
+    function validateEmail() {
+      const email = document.getElementById('email');
+      const error = document.getElementById('email-error');
+      const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!pattern.test(email.value.trim())) {
+        error.textContent = 'Enter a valid email address.';
+        email.classList.add('error-border');
+        return false;
+      } else {
+        error.textContent = '';
+        email.classList.remove('error-border');
+        return true;
+      }
+    }
+
+    // Full form validator on submit
+    function validateForm() {
+      const validName = validateName();
+      const validPhone = validatePhone();
+      const validEmail = validateEmail();
+      return validName && validPhone && validEmail;
+    }
+
+    // Attach real-time input event listeners
+    document.getElementById('name').addEventListener('input', validateName);
+    document.getElementById('phone').addEventListener('input', validatePhone);
+    document.getElementById('email').addEventListener('input', validateEmail);
+
+;
     // Form Submission (Basic Example)
     bookingForm.addEventListener("submit", function (event) {
         event.preventDefault();
-        alert("Appointment booked successfully!");
-        bookingForm.reset(); // Clear form after submission
+        if (validateForm()) {
+            alert("Appointment booked successfully!");
+            bookingForm.reset(); // Clear form after submission
+        // Optionally: this.submit();
+        }
+
     });
 
 });
