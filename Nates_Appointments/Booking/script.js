@@ -122,12 +122,27 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('phone').addEventListener('input', validatePhone);
     document.getElementById('email').addEventListener('input', validateEmail);
 
-;
+  function getFormDataAsJSON() {
+    const formData = {
+      name: document.getElementById('name').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      vehicleMake: document.getElementById('vehicle-make').value,
+      vehicleModel: document.getElementById('vehicle-model').value,
+      vehicleYear: document.getElementById('vehicle-year').value,
+      service: document.getElementById('service-select').value,
+      date: document.getElementById('date').value,
+      time: document.getElementById('time-select').value
+    };
+
+    return formData;
+  }
     // Form Submission (Basic Example)
     bookingForm.addEventListener("submit", function (event) {
         event.preventDefault();
         if (validateForm()) {
-            alert("Appointment booked successfully!");
+            const data = getFormDataAsJSON();
+            console.log("📦 JSON object created:", JSON.stringify(data, null, 2));
             bookingForm.reset(); // Clear form after submission
         // Optionally: this.submit();
         }
